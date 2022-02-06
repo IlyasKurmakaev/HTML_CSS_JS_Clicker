@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+      body {background-image: url(fon.shop.jpg);}
+
+        
+
+        .backgoundClass {
+            width: 100%; /* Ширина блока */
+            height: 3000px;
+        }
+        .topright {
+            border-radius: 5%;
+            
+            font-size: 250%;
+            position: absolute;
+            top: 2%;
+            right: 3%;
+
+        }
+
+        .center {
+            border-radius: 20%;
+            background-color: aliceblue;
+            font-size: 250%;
+            position: absolute;
+            top: 3%;
+            left: 60%;
+
+        }
+
+        .topleft {
+            border-radius: 5%;
+            background-color: rgba(200, 255, 0, 0.377);
+            font-size: 350%;
+            position: absolute;
+            top: 2%;
+            left: 5%;
+        }
+
+        .bottomleft {
+            position: absolute;
+            border-radius: 20%;
+            background-color: rgba(80, 7, 236, 0.267);
+            bottom: 44%;
+            left: 11%;
+            width:80%;
+            height: auto;
+        }
+
+        .bottomright {
+            position: absolute;
+            border-radius: 20%;
+            background-color: rgba(80, 7, 236, 0.27);
+            border: 30px #0000ff;
+            bottom: 0%;
+            left: 11%;
+            width:80%;
+            height: auto;
+        }
+
+        .bottom3 {
+            position: absolute;
+            border-radius: 20%;
+            background-color: rgba(80, 7, 236, 0.267);
+            border: 30px blue;
+            bottom: -44%;
+            left: 11%;
+            width:80%;
+            height: auto;
+        }
+        .bottom4 {
+            position: absolute;
+            border-radius: 20%;
+            background-color: rgba(80, 7, 236, 0.267);
+            border: 30px blue;
+            bottom: -88%;
+            left: 11%;
+            width:80%;
+            height: auto;
+        }
+        .bottom5 {
+            position: absolute;
+            border-radius: 20%;
+            background-color: rgba(80, 7, 236, 0.267);
+            border: 30px blue;
+            bottom: -132%;
+            left: 11%;
+            width:80%;
+            height: auto;
+        }
+
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+
+    </style>
+
+    <script>
+        function startFunc() {
+            console.log("inStartFunc");
+            if (localStorage.getItem("mykey") == null) {
+                localStorage.setItem("mykey", 0);
+                document.getElementById('countId').innerHTML = 0;
+            } else {
+                document.getElementById('countId').innerHTML = localStorage.getItem("mykey");
+            }
+        }
+
+        window.onload = startFunc;
+
+        function selectFirstCat() {
+            console.log("selectFirstCat");
+            localStorage.setItem("selectedCat", "cat1");
+            document.getElementsByClassName("bottomleft")[0].style.border = "5px solid red";
+            document.getElementsByClassName("bottomright")[0].style.border = "5px  solid blue";
+            document.getElementsByClassName("bottom4")[0].style.border = "5px  solid blue";
+            document.getElementsByClassName("bottom3")[0].style.border = "5px solid blue";
+            document.getElementsByClassName("bottom5")[0].style.border = "5px solid blue";
+            window.alert("Вы выбрали Рисожора. Это первый ваш кот, самый любимый и пушистый, любит покушать рис.");
+        }
+
+        function selectSecondCat() {
+            console.log("selectSecondCat");
+            if (localStorage.getItem("2catAlreadyBuyed") == null) {
+                if (localStorage.getItem("mykey") < 20) {
+                    window.alert("У Вас недостаточно еды для приобретения Кота-Простока, который есть и не толстеет ,ваш текущий счёт еды: " + localStorage.getItem("mykey") + "\n" + "нужно: 20");
+                    return;
+                } else {
+                    var cookiesAfterBuy = localStorage.getItem("mykey") - 20;
+                    localStorage.setItem("mykey", cookiesAfterBuy);
+                    localStorage.setItem("2catAlreadyBuyed", "true");
+                    localStorage.setItem("selectedCat", "cat2");
+                    document.getElementsByClassName("bottomright")[0].style.border = "5px solid red";
+                    document.getElementsByClassName("bottomleft")[0].style.border = "5px solid blue";
+                    document.getElementsByClassName("bottom3")[0].style.border = "5px solid blue";
+                    document.getElementsByClassName("bottom4")[0].style.border = "5px solid blue";
+                    document.getElementsByClassName("bottom5")[0].style.border = "5px solid blue";
+                    startFunc();
+                    window.alert("Вы купили и выбрали Кота-Простока. Простак в своём деле - мастак: любит кушать и спать.");
+                    return;
+                }
+            }
+            localStorage.setItem("selectedCat", "cat2");
+            window.alert("Вы выбрали Кота-Простока. Простак в своём деле - мастак: любит кушать и спать.");
+            document.getElementsByClassName("bottomright")[0].style.border = "5px solid red";
+            document.getElementsByClassName("bottomleft")[0].style.border = "5px solid blue";
+        }
+
+        function selectThirdCat() {
+            console.log("selectThirdCat");
+            if (localStorage.getItem("3catAlreadyBuyed") == null) {
+                if (localStorage.getItem("mykey") < 5000) {
+                    window.alert("У Вас недостаточно еды для приобретения котенка Милы,которая очень любит уютную и миленькую одежду, ваш текущий счёт еды: " + localStorage.getItem("mykey") + "\n" + "нужно: 5000");
+                    return;
+                } else {
+                    var cookiesAfterBuy = localStorage.getItem("mykey") - 5000;
+                    localStorage.setItem("mykey", cookiesAfterBuy);
+                    localStorage.setItem("3catAlreadyBuyed", "true");
+                    localStorage.setItem("selectedCat", "cat3");
+                    document.getElementsByClassName("bottom3")[0].style.border = "5px solid red";
+                    document.getElementsByClassName("bottomleft")[0].style.border = "5px solid blue";
+                    document.getElementsByClassName("bottom4")[0].style.border = "5px solid blue";
+                    document.getElementsByClassName("bottom5")[0].style.border = "5px solid blue";
+                    document.getElementsByClassName("bottomright")[0].style.border = "5px solid blue";
+                    startFunc();
+                    window.alert("Вы купили и выбрали Котенка Милу. Этот котенок любит уютную одежду и миленькие вещи, поэтому он в розовом свитере");
+                    return;
+                }
+            }
+            localStorage.setItem("selectedCat", "cat3");
+            window.alert("Вы выбрали Котенка Милу. Этот котенок любит уютную одежду и миленькие вещи, поэтому он в розовом свитере.");
+            document.getElementsByClassName("bottomright")[0].style.border = "5px solid blue";
+            document.getElementsByClassName("bottomleft")[0].style.border = "5px solid blue";
+            document.getElementsByClassName("bottom3")[0].style.border = "5px solid red";
+            document.getElementsByClassName("bottom4")[0].style.border = "5px solid blue";
+            document.getElementsByClassName("bottom5")[0].style.border = "5px solid blue";
+        }
+        function select4Cat() {
+            console.log("select4Cat");
+            if (localStorage.getItem("4catAlreadyBuyed") == null) {
+                if (localStorage.getItem("mykey") < 50000) {
+                    window.alert("У Вас недостаточно еды для преобетения Котофея Билл Шифера, которыз знает тайну мироздания, ваш текущий счёт еды: " + localStorage.getItem("mykey") + "\n" + "нужно: 50000");
+                    return;
+                } else {
+                    var cookiesAfterBuy = localStorage.getItem("mykey") - 50000;
+                    localStorage.setItem("mykey", cookiesAfterBuy);
+                    localStorage.setItem("4catAlreadyBuyed", "true");
+                    localStorage.setItem("selectedCat", "cat4");
+                    document.getElementsByClassName("bottom4")[0].style.border = "5px solid red";
+                    document.getElementsByClassName("bottomleft")[0].style.border = "5px solid blue";
+                    document.getElementsByClassName("bottom3")[0].style.border = "5px solid blue"
+                    document.getElementsByClassName("bottom5")[0].style.border = "5px solid blue";
+                    document.getElementsByClassName("bottomright")[0].style.border = "5px solid blue";
+                    startFunc();
+                    window.alert("Вы купили и выбрали Котенка Милу. Этот котенок любит уютную одежду и миленькие вещи, поэтому он в розовом свитере");
+                    return;
+                }
+            }
+            localStorage.setItem("selectedCat", "cat4");
+            window.alert("Вы выбрали Котенка Милу. Этот котенок любит уютную одежду и миленькие вещи, поэтому он в розовом свитере.");
+            document.getElementsByClassName("bottomright")[0].style.border = "5px solid blue";
+            document.getElementsByClassName("bottomleft")[0].style.border = "5px solid blue";
+            document.getElementsByClassName("bottom3")[0].style.border = "5px solid blue";
+            document.getElementsByClassName("bottom4")[0].style.border = "5px solid red";
+            document.getElementsByClassName("bottom5")[0].style.border = "5px solid blue";
+        }
+        function select5Cat() {
+            console.log("select5Cat");
+            if (localStorage.getItem("5catAlreadyBuyed") == null) {
+                if (localStorage.getItem("mykey") < 500000) {
+                    window.alert("У Вас недостаточно еды для преобретения кота Единорожика, ваш текущий счёт еды: " + localStorage.getItem("mykey") + "\n" + "нужно: 500000");
+                    return;
+                } else {
+                    var cookiesAfterBuy = localStorage.getItem("mykey") - 500000;
+                    localStorage.setItem("mykey", cookiesAfterBuy);
+                    localStorage.setItem("5catAlreadyBuyed", "true");
+                    localStorage.setItem("selectedCat", "cat5");
+                    document.getElementsByClassName("bottom5")[0].style.border = "5px solid red";
+                    document.getElementsByClassName("bottomleft")[0].style.border = "5px solid blue";
+                    document.getElementsByClassName("bottom3")[0].style.border = "5px solid blue"
+                    document.getElementsByClassName("bottom4")[0].style.border = "5px solid blue";
+                    document.getElementsByClassName("bottomright")[0].style.border = "5px solid blue";
+                    startFunc();
+                    window.alert("Вы купили и выбрали Котенка Милу. Этот котенок любит уютную одежду и миленькие вещи, поэтому он в розовом свитере");
+                    return;
+                }
+            }
+            localStorage.setItem("selectedCat", "cat5");
+            window.alert("Вы выбрали Котенка Милу. Этот котенок любит уютную одежду и миленькие вещи, поэтому он в розовом свитере.");
+            document.getElementsByClassName("bottomright")[0].style.border = "5px solid blue";
+            document.getElementsByClassName("bottomleft")[0].style.border = "5px solid blue";
+            document.getElementsByClassName("bottom3")[0].style.border = "5px solid blue";
+            document.getElementsByClassName("bottom5")[0].style.border = "5px solid red";
+            document.getElementsByClassName("bottom4")[0].style.border = "5px solid blue";
+        }
+    </script>
+</head>
+
+
+<body>
+
+<div class="container">
+    
+    <div class="center" id="countId"></div>
+    <div class="topleft"><b>CatShop</b></div>
+    <btn onclick="selectFirstCat()">
+        <img src="cat1.png" class="bottomleft">
+    </btn>
+    <btn onclick="selectSecondCat()">
+        <img src="cat2.png" class="bottomright">
+    </btn>
+    <btn onclick="selectThirdCat()">
+        <img src="cat3.png" class="bottom3">
+    </btn>
+     <btn onclick="select4Cat()">
+        <img src="cat4.png" class="bottom4">
+    </btn>
+    <btn onclick="select5Cat()">
+        <img src="cat5.png" class="bottom5">
+    </btn>
+    <a href="maymay.html">
+    
+        <div class="topright" ><img src="krest5-removebg-preview.png" alt="НАЗАД"></div>
+    </a>
+</div>
+
+</body>
+</html>
+
+

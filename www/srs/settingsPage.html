@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            position: relative;
+        }
+
+        .topFirst {
+            border: 10px solid green;
+            position: absolute;
+            top: 8px;
+            left: 43%;
+            font-size: 70px;
+            -webkit-text-stroke: 1px rgb(60, 63, 219);
+        }
+
+        .topSecond {
+            border: 10px solid green;
+            position: absolute;
+            top: 100px;
+            left: 43%;
+
+            font-size: 60px;
+            -webkit-text-stroke: 1px rgb(194, 91, 91);
+        }
+
+        .checkBoxZvuki {
+            border: 10px solid green;
+            position: absolute;
+            top: 200px;
+            left: 43%;
+            min-block-size: 50px;
+            width:100px;
+            height: 100px;
+            -webkit-text-stroke: 1px rgb(194, 91, 91);
+        }
+
+        .saveSettings {
+            border: 10px solid green;
+            position: absolute;
+            top: 300px;
+            left: 43%;
+            font-size: 50px;
+            -webkit-text-stroke: 1px rgb(194, 91, 91);
+        }
+
+        .resetPreferences {
+            border: 10px solid green;
+            position: absolute;
+            top: 400px;
+            left: 43%;
+            font-size: 50px;
+            -webkit-text-stroke: 1px rgb(194, 91, 91);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .bottomleft {
+            border-radius: 5%;
+            background-color: rgba(200, 255, 0, 0.377);
+            font-size: 350%;
+            position: absolute;
+            top: 2%;
+            left: 25%;
+        }
+
+    </style>
+
+    <script>
+        function saveSettings() {
+            console.log("saveSettings");
+            var checkedValue = document.querySelector(".checkBoxZvuki").checked;
+            localStorage.setItem("sound", checkedValue);
+            var soundIsOn;
+            if (checkedValue == false) {
+                soundIsOn = "Звуки выключены";
+            } else {
+                soundIsOn = "Звуки включены";
+            }
+            window.alert("Настройки сохранены: " +  soundIsOn);
+        }
+
+        function resetAll() {
+            console.log("resetAll");
+            localStorage.clear()
+            window.alert("Все настройки сброшены");
+        }
+    </script>
+</head>
+
+
+
+<body>
+<div class="container">
+    <img src="settingsBackground.png">
+    <div class="topFirst">НАСТРОЙКИ</div>
+    <div class="topSecond">Звук:</div>
+    <input type="checkbox" class="checkBoxZvuki" >
+    <btn onclick="saveSettings()">
+        <div class="saveSettings"> Сохранить настройки</div>
+    </btn>
+    <btn onclick="resetAll()">
+        <div class="resetPreferences"> Сбросить настройки и прогресс</div>
+    </btn>
+    <a href="maymay.html">
+        <div class="bottomleft">МЕНЮ</div>
+    </a>
+</div>
+
+</body>
+</html>
+
+

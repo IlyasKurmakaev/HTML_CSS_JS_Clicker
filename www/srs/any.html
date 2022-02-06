@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+body { background-color:rgba(94, 243, 161, 0.89);}
+
+.topFirst { 
+            border-radius: 5%;  
+background-color: rgba(20, 187, 43, 0.514);
+border: none;
+color: white;
+padding: 15px 26px;
+text-align: center;
+display: inline-block;
+font-size: 30px;
+
+cursor: pointer;
+border: 1px solid green;
+position: absolute;
+top: 20px;
+left: 18%;
+
+}
+.topSecond {
+            border-radius: 5%;
+  
+background-color: rgba(20, 187, 43, 0.514);
+border: none;
+color: white;
+padding: 15px 55px;
+text-align: center;
+display: inline-block;
+cursor: pointer;
+border: 1px solid green;
+position: absolute;
+top: 170px;
+left: 19%;
+width:30%;
+font-size: 30px;
+
+}
+.checkBoxZvuki {
+background-color: rgba(20, 187, 43, 0.514);
+border: none;
+color: white;
+padding: 10px 12px;
+text-align: center;
+display: inline-block;
+margin: 94px 35px;
+cursor: pointer;
+border: 10px solid green;
+position: absolute;
+top: 87px;
+left: 52%;
+min-block-size: 40px;
+width:50px;
+height: 50px;
+-webkit-text-stroke: 10px rgb(194, 91, 91);
+}
+.saveSettings {
+            border-radius: 5%;
+  
+background-color: rgba(20, 187, 43, 0.514);
+border: none;
+color: white;
+padding: 15px 12px;
+text-align: center;
+display: inline-block;
+margin: 3px 8px;
+cursor: pointer;
+border: 1px solid green;
+position: absolute;
+
+top: 300px;
+left: 9%;
+font-size: 30px;
+
+}
+.resetPreferences {
+            border-radius: 5%;
+  
+background-color:rgba(20, 187, 43, 0.514);
+border: none;
+color: white;
+padding: 15px 5px;
+text-align: center;
+display: inline-block;
+margin: 3px 8px;
+cursor: pointer;
+border: 1px solid green;
+position: absolute;
+top:450px;
+left: 2%;
+font-size: 30px;
+
+}
+.bottomleft {
+            border-radius: 5%;  
+border: none;
+color: white;
+padding: 1px 2px;
+text-align: center;
+display: inline-block;
+cursor: pointer;
+position: absolute;
+ top: 2%;
+right: 3%;
+font-size: 45px;
+}
+.info { border-radius: 5%;
+  
+background-color: rgba(20, 187, 43, 0.514);
+color: white;
+padding: 15px 55px;
+border: 1px solid green;
+position: absolute;
+top: 625px;
+left: 14%;
+font-size: 30px;
+
+}
+</style>
+<script>
+function saveSettings() {
+console.log("saveSettings");
+var checkedValue = document.querySelector(".checkBoxZvuki").checked;
+localStorage.setItem("sound", checkedValue);
+var soundIsOn;
+if (checkedValue == false) {
+soundIsOn = "Звуки выключены";
+} else {
+soundIsOn = "Звуки включены";
+}
+window.alert("Настройки сохранены: " + soundIsOn);
+}
+
+function resetAll() {
+console.log("resetAll");
+localStorage.clear()
+window.alert("Все настройки сброшены");
+}
+</script>
+</head>
+<body>
+<div class="container">
+
+<div class="topFirst">НАСТРОЙКИ</div>
+<div class="topSecond">Звук:</div>
+<input type="checkbox" class="checkBoxZvuki" >
+<btn onclick="saveSettings()">
+<div class="saveSettings"> Сохранить настройки</div>
+</btn>
+<btn onclick="resetAll()">
+<div class="resetPreferences"> Сбросить настройки и прогресс</div>
+</btn>
+<a href="maymay.html">
+<div class="bottomleft"><img src="krest5-removebg-preview.png" alt="НАЗАД"></div>
+</a>
+<a href="info.html">
+<div class="info">Информация</div>
+</a>
+</div>
+</body>
+</html>

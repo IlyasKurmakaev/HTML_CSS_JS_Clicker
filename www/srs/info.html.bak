@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+body { background-color:rgba(255, 100, 190, 0.596);}
+.info {outline-style: dashed; 
+outline-color: #eb7b1ac5; 
+padding: 10px;
+background: #eed4c8be;
+text-align: center;
+color:rgba(80, 78, 82, 0.89) }
+
+.pravila {outline-style: dashed;
+outline-color: #d213e4c9; 
+padding: 5px; 
+background: rgba(150, 20, 236, 0.171);
+color: #fce3fde3;
+font-size: 160%;}
+#inf {outline-style: dashed;
+outline-color: #d213e4c9; 
+padding: 5px; 
+background:  rgba(80, 78, 82, 0.185);
+font-size: 80%;}
+.krest { border-radius: 5%;
+            
+            font-size: 250%;
+            position: absolute;
+            top: 2%;
+            right: 3%;
+}
+</style>
+</head>
+<body>
+   <h1 class="info">Правила</h1>
+   <div class="pravila"> <p>1.Нажимая на котика на главном экране вы можете зарабатывать "еду"(игровую валюту).
+     <p> 2.Заработав определенное количество еды, вы можете преобрести нового котика
+       <p> 3.Самое главное правило-наслаждайтесь игрой!</p></p></p></div>
+       <hr>
+   <h1 class="info">Информация</h1>
+   <div id="inf"><p>Разработчики игры:</p>
+   <p>студентки САФУ ВШИТиАС группы 351011</p>
+   <p>Сухих Диана</p>
+   <p>Михашина Елена</p>
+   <p>Коржева Анна</p>
+   <p>Версия: 1.0</p></div>
+   <a href="any.html">
+<div class="krest"><img src="krest5-removebg-preview.png" alt="НАЗАД"></div>
+</a>
+</body>
+
+</html>
